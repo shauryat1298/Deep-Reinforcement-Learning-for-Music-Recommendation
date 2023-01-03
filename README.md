@@ -6,9 +6,9 @@
 
 ## Overview
 
-To build Music Recommender with the capability to handle a large number of discrete actions (e.g. millions of songs in database), I implemented the model Deep Deterministic Policy Gradient (DDPG)
+To build a music recommendation system that can handle a large number of options (such as millions of songs in a database), I implemented the Deep Deterministic Policy Gradient (DDPG) algorithm. 
 
-The algorithm DDPG has the ability to simultaneously learn a policy and a Q-function. To simulate the sequential interactions between users and the recommender system, DDPG uses an actor-critic framework. Actor network produces a policy function that assesses all music and then recommends the top three songs with the highest scores for the user based on the songs that a user has been listening to in a listening session. The Q-value function, which determines if a song's selection matches the user's recent behavior, is then learned by Critic Network using approximation. The Actor network modifies its policy parameters in response to the Critic network's assessment to enhance recommending performance in subsequent iterations.
+This algorithm has the ability to learn both a policy and a Q-function simultaneously. To simulate the interactions between the user and the recommendation system, DDPG uses an actor-critic framework. The actor network produces a policy function that evaluates all of the music and then recommends the top three songs with the highest scores based on the songs that the user has been listening to in a listening session. The Q-value function, which determines if a song selection matches the user's recent behavior, is then learned by the critic network using approximation. The actor network modifies its policy parameters in response to the critic network's evaluation to improve recommendation performance in subsequent iterations.
 
 <p align="center">
   <img width="400" height="330" src=other/ddpg.png>
@@ -16,11 +16,11 @@ The algorithm DDPG has the ability to simultaneously learn a policy and a Q-func
 
 ## Evaluation
 
-To measure Music Recommender's performance offline, I tracked multiple metrics such as music diversity and song skip rates. Compared to the original methods used in the dataset, it recommends a more diverse selection of music (9.3 % vs 7.6%) and also better identifies songs that are skipped by users (49% vs 54%).
+To evaluate the performance of the music recommendation system, I tracked multiple metrics such as music diversity and song skip rates. The results showed that the system recommended a more diverse selection of music compared to the original methods (9.3% vs 7.6%) and also performed better at identifying songs that were skipped by users (49% vs 54%).
 
 ## Limitations
 
-One major impediment of applying reinforcement learning to recommender system is the lack of simulation platforms for sequential user interactions. This makes the full evaluation of Music Recommender difficult, especially when it comes to reasoning about ordering of songs in a playlist.
+One challenge in using reinforcement learning for recommendation systems is the lack of simulation platforms for sequential user interactions. This makes it difficult to fully evaluate the music recommendation system, especially when it comes to understanding the order of songs in a playlist.
 
 ## Example usage
 
@@ -32,7 +32,7 @@ run('../data/user_mini_data.tar.gz', '../data/music_mini_data.tar.gz')
 
 ## Data
 
-I built the project based on a real-world dataset from Spotify. As entire dataset is very large (e.g. 130 million listening sessions), I will not store it here on github. If you are interested, please check out their website [https://www.aicrowd.com/challenges/spotify-sequential-skip-prediction-challenge](https://www.aicrowd.com/challenges/spotify-sequential-skip-prediction-challenge).
+I built this project using a real-world dataset from Spotify. The entire dataset is quite large (for example, it includes 130 million listening sessions). I am unable to include it here on GitHub, but you can find more information about it at the following website: https://www.aicrowd.com/challenges/spotify-sequential-skip-prediction-challenge.
 
 ## Inspiration
 
